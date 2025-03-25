@@ -1,15 +1,15 @@
-# Datos-PPG-para-validacion-en-estimacion-de-glucosa
-Este repositorio contiene registros de 23 sujetos donde se puede observar información del tiempo, registros PPG extraídos de la frente, oreja y dedo índice. Su objetivo es proporcionar una herramienta lo cual nos permita extraer archivos .MAT a .CSV y así lograr observar los datos y graficar en MATLAB cada individuo. Con el fin de tener validación para desarrollos relacionados con la estimación de niveles de glucosa en sangre.
+# PPG-Data-for-Validation-in-Glucose-Estimation
+This repository contains records from 23 subjects, including time information and PPG signals extracted from the forehead, ear, and index finger. Its objective is to provide a tool that allows us to convert .MAT files to .CSV, enabling data visualization and plotting in MATLAB for each individual. This aims to facilitate validation for developments related to blood glucose level estimation.
 
-Contenido del repositorio:
+Repository Content:
 
-Datos de tiempo, frente, oreja y dedo índice.
+Time data, forehead, ear, and index finger signals.
 
-23 archivos de sujetos CSV
+23 CSV files of subject records.
 
-Registros de edad, genero, nivel de glucosa en sangre
+Age, gender, and blood glucose level records.
 
-Código para extraer los archivos .mat a .csv:
+Code to convert .MAT files to .CSV:
 
     % Definir carpetas de entrada y salida
     carpeta_mat = 'archivos_mat'; 
@@ -54,8 +54,7 @@ Código para extraer los archivos .mat a .csv:
     else
         fprintf('El archivo %s no contiene las variables requeridas.\n', archivos(k).name);
     end
-Codigo para graficar en matlab las señales de cada sujeto:
-
+Code to plot each subject's signals in MATLAB:
     close all
     clear
     clc
