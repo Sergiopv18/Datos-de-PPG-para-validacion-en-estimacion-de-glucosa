@@ -55,10 +55,7 @@ Code to convert .MAT files to .CSV:
         fprintf('El archivo %s no contiene las variables requeridas.\n', archivos(k).name);
     end
 Code to plot each subject's signals in MATLAB:
-    close all
-    clear
-    clc
-
+    
     while true
     % Pedir al usuario el nombre del archivo o salir
     archivo = input('Ingrese el nombre del archivo CSV (escriba "fin" para terminar): ', 's');
