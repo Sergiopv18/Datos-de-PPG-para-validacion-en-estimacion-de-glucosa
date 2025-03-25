@@ -4,7 +4,9 @@ Contenido del repositorio:
 
 Datos de tiempo, frente, oreja y dedo índice.
 
-Formato: 23 archivos de sujetos CSV
+23 archivos de sujetos CSV
+
+Registros de edad, genero, nivel de glucosa en sangre
 
 Código para extraer los archivos .mat a .csv:
 
@@ -51,4 +53,51 @@ Código para extraer los archivos .mat a .csv:
     else
         fprintf('El archivo %s no contiene las variables requeridas.\n', archivos(k).name);
     end
+Codigo para graficar en matlab las señales de cada sujeto:
 
+    close all
+    clear
+    clc
+
+    while true
+    % Pedir al usuario el nombre del archivo o salir
+    archivo = input('Ingrese el nombre del archivo CSV (escriba "fin" para terminar): ', 's');
+    
+    % Verificar si el usuario quiere terminar
+    if strcmpi(archivo, 'fin')
+        disp('Fin del programa');
+        break;
+    end
+
+    % Intentar cargar el archivo
+    try
+        data = readtable(archivo);
+
+        % Extraer columnas
+        t = data{:, 'Tiempo'}; % Tiempo en segundos
+        frente = data{:, 'Frente'}; % Señal de la frente
+        oreja = data{:, 'Oreja'}; % Señal de la oreja
+        dedo = data{:, 'Dedo_Indice'}; % Señal del dedo índice
+
+        % Graficar cada señal en una figura diferente
+        figure;
+        plot(t, frente, 'r', 'LineWidth', 1.5);
+        xlabel('Tiempo (s)');
+        ylabel('Amplitud');
+        title(['Señal de la Frente - ' archivo]);
+        grid on;
+
+        figure;
+        plot(t, oreja, 'b', 'LineWidth', 1.5);
+        xlabel('Tiempo (s)');
+        ylabel('Amplitud');
+        title(['Señal de la Oreja - ' archivo]);
+        grid on;
+
+        figure;
+        plot(t, dedo, 'g', 'LineWidth', 1.5);
+        xlabel('Tiempo (s)');
+        ylabel('Amplitud');
+        title(['Señal del Dedo Índice - ' archivo]);
+        grid on;
+    end
